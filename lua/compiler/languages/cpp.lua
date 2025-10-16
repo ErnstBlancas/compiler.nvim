@@ -61,17 +61,16 @@ function M.action(selected_option)
           components = { "default_extended" }
         },},},})
     task:start()
-
-  elseif selected_option == "option5" then
-    local task = overseer:new_task({
-    name = "- C++ compiler, custom buld file compile.sh",
-    strategy = { "orchestrator",    
-    tasks = {{  name = "bash compile.sh",
-    cmd = "bash compile.sh",                                                    
-    components = { "default_extended" }
-    },},},                                                                          
-    })              
-    task:start()
+--  elseif selected_option == "option5" then
+--    local task = overseer:new_task({
+--    name = "- C++ compiler, custom buld file compile.sh",
+--    strategy = { "orchestrator",    
+--    tasks = {{  name = "bash compile.sh",
+--    cmd = "bash compile.sh",                                                    
+--    components = { "default_extended" }
+--    },},},                                                                          
+--    })              
+--    task:start()
 
   elseif selected_option == "option4" then
     local entry_points
