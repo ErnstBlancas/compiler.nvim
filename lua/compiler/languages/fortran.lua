@@ -8,7 +8,7 @@ M.options = {
   { text = "FPM build and run", value = "option2" },
   { text = "FPM build", value = "option3" },
   { text = "FPM run", value = "option4" },
-  { text = "Use provided script", value = "option5" },
+  { text = "Use provided script to build", value = "option5" },
 }
 
 -- Backend - overseer tasks performed on option selected
@@ -68,7 +68,7 @@ function M.action(selected_option)
     task:start()
    elseif selected_option == "option5" then
      local task = overseer.new_task({
-         name = "- Fortram compiler, custom file compile.sh",
+         name = "- Fortram compiler, custom build file compile.sh",
          strategy = { "orchestrator",
             tasks = {{  name = "bash compile.sh",
                         cmd = "bash compile.sh",

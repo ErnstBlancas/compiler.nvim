@@ -8,6 +8,7 @@ M.options = {
   { text = "Build program", value = "option2" },
   { text = "Run program", value = "option3" },
   { text = "Build solution", value = "option4" }
+  { text = "Use provided script to build", value = "option5" }
 }
 
 --- Backend - overseer tasks performed on option selected
@@ -137,6 +138,17 @@ function M.action(selected_option)
       })
       task:start()
     end
+  elseif selected_option == "option5" then
+    local task = overseer:new_task({
+    name = "- C++ compiler, custom buld file compile.sh",
+    strategy = { "orchestrator",    
+    tasks = {{  name = "bash compile.sh",
+    cmd = "bash compile.sh",                                                    
+    components = { "default_extended" }
+    },},},                                                                          
+    })              
+    task:start()
+
   end
 end
 
